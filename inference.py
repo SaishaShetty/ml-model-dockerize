@@ -1,9 +1,17 @@
 import numpy as np
+import pandas as pd
 import joblib
+import os
 
 def perform_inference(input_data):
+    dirpath = os.getcwd()
+    print("dirpath = ",dirpath)
+    output = os.path.join(dirpath, 'output.csv')
+
     model = joblib.load('linear_regression_model.joblib')  
     prediction = model.predict(input_data)
+    new = pd.DataFrame(prediction, columns =["Predictions"])
+    new.to_csv(output)
     return prediction
 
 if __name__ == "__main__":
