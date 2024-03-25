@@ -8,5 +8,3 @@ COPY train.py ./train.py
 COPY inference.py ./inference.py
 
 RUN python train.py
-
-
